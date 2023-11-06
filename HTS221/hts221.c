@@ -7,14 +7,12 @@
 
 #include "hts221.h"
 
-
 void htsInit()
 {
 	if (whoAmI())
 	{
 		i2c_send_byte(HTS221_WRITE_ADDRESS,CTRL_REG1_ADDRES, INIT_REG1);
 	}
-
 }
 
 uint8_t whoAmI()

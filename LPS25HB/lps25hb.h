@@ -25,8 +25,9 @@
 #define 	LPS25HB_INIT_REG1           0x90U //PD = 1 ODR 1Hz
 
 
-float returnHeight();
 uint8_t whoAmILPS();
+
+float returnHeight();
 void lpsInit();
 
 int32_t rawPressure();

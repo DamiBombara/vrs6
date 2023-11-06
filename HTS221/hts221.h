@@ -11,7 +11,6 @@
 #include "stm32f3xx.h"
 #include "i2c.h"
 
-
 #define 	HTS221_READ_ADDRESS			0xBFU
 #define 	HTS221_WRITE_ADDRESS		0xBEU
 
@@ -28,17 +27,15 @@
 #define 	HUMIDITY_OUT_L_ADDRESS		0x28U
 
 
-void 	htsInit();
-uint8_t  whoAmI();
-void  	tempInit();
+uint8_t whoAmI();
 
+void htsInit();
+void tempInit();
 
 float rawTemp();
-float  rawHum();
+float rawHum();
 
-
-float  	 returnHum();
-float  	returnTemp();
-
+float returnHum();
+float returnTemp();
 
 #endif /* HTS221_H_ */

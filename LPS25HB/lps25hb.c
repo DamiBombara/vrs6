@@ -9,7 +9,7 @@
 #include <math.h>
 
 float firstHeight = 0;
-float lastHeight= 0;
+float lastHeight = 0;
 
 float returnHeight()
 {
@@ -19,11 +19,10 @@ float returnHeight()
 	} else return 0.0;
 }
 
-
 float calculateHeight()
 {
 	returnPressure();
-    //return (T / L) * (1 - powf(lastHeight  / firstHeight , (R * L) / (g * M)));
+    //return (T / L) * (1 - pow(lastHeight  / firstHeight , (R * L) / (g * M)));
 	return 0;
 }
 
@@ -37,8 +36,7 @@ uint8_t whoAmILPS()
 {
 	if (i2c_master_read_byte(LPS25HB_READ_ADDRESS, LPS25HB_WHO_AM_I_ADDRES) == LPS25HB_WHO_AM_I_VALUE){
 		return 1;
-	}else return 0;
-
+	} else return 0;
 }
 
 int32_t rawPressure()
@@ -52,7 +50,8 @@ int32_t rawPressure()
     return raw_pressure;
 }
 
-float returnPressure(){
+float returnPressure()
+{
 	float pressure_hPa = 0;
 
 	if (whoAmILPS())
