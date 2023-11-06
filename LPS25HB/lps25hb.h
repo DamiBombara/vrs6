@@ -15,20 +15,20 @@
 #define 	LPS25HB_WRITE_ADDRESS		0xBAU
 
 #define 	LPS25HB_WHO_AM_I_VALUE		0xBDU
-#define 	LPS25HB_WHO_AM_I_ADDRES		0x0FU
+#define 	LPS25HB_WHO_AM_I_ADDRESS	0x0FU
 
-#define 	PRESS_OUT_XL_ADDRES      	0x28U
-#define 	PRESS_OUT_L_ADDRES       	0x29U
-#define 	PRESS_OUT_H_ADDRES       	0x2AU
+#define 	PRESS_OUT_XL_ADDRESS      	0x28U
+#define 	PRESS_OUT_L_ADDRESS       	0x29U
+#define 	PRESS_OUT_H_ADDRESS      	0x2AU
 
 #define 	LPS25HB_CTRL_REG1           0x20U
-#define 	LPS25HB_INIT_REG1           0x90U //PD = 1 ODR 1Hz
+#define 	LPS25HB_INIT_REG1           0xA0U //PD = 1 ODR 7Hz
 
 
 uint8_t whoAmILPS();
 void lpsInit();
 
-int32_t getPressure();
+float getPressure();
 
 float calculateHeight();
 

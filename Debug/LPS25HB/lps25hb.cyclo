@@ -1,4 +1,4 @@
 ../LPS25HB/lps25hb.c:13:9:whoAmI_LPS	2
-../LPS25HB/lps25hb.c:20:6:lpsInit	2
-../LPS25HB/lps25hb.c:28:7:calculateHeight	1
-../LPS25HB/lps25hb.c:33:9:getPressure	2
+../LPS25HB/lps25hb.c:21:6:lpsInit	2
+../LPS25HB/lps25hb.c:29:7:calculateHeight	1
+../LPS25HB/lps25hb.c:40:7:getPressure	2
