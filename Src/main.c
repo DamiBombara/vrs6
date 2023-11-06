@@ -58,16 +58,15 @@ int main(void)
 
   while (1)
   {
-	  temp = rawTemp();
-	  hum = rawHum();
-	  pressure = returnPressure();
-	  height = returnHeight();
+	  temp = getTemp();
+	  hum = getHum();
+	  pressure = getPressure();
+	  height = calculateHeight();
 	  sprintf(tx_data, "Teplota [°C]: %.2f, relat. vlhkosť [%%]: %.2f, tlak vzduchu [hPa]: %.2f, relat. výška od zeme [m]: %.2f;\n\r", temp, hum, pressure, height);
 	  USART2_PutBuffer(tx_data, sizeof(tx_data));
 	  LL_mDelay(1000);
   }
 }
-
 
 /**
   * @brief System Clock Configuration

@@ -26,12 +26,9 @@
 
 
 uint8_t whoAmILPS();
-
-float returnHeight();
 void lpsInit();
 
-int32_t rawPressure();
-float returnPressure();
+int32_t getPressure();
 
 float calculateHeight();
 
