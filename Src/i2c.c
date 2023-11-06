@@ -72,6 +72,21 @@ void MX_I2C1_Init(void)
   LL_I2C_Enable(I2C1);
 }
 
+void i2c_send_byte(uint8_t slave_address, uint8_t register_address, uint8_t data)
+{
+	// Initialize communication
+	LL_I2C_HandleTransfer(I2C1, slave_address, LL_I2C_ADDRSLAVE_7BIT, 1, LL_I2C_MODE_AUTOEND, LL_I2C_GENERATE_START_WRITE);
+	LL_I2C_TransmitData8(I2C1, register_address);
+
+	while (!LL_I2C_IsActiveFlag_STOP(I2C1))
+	{
+		if (LL_I2C_IsActiveFlag_TXIS(I2C1))
+	    {
+			LL_I2C_TransmitData8(I2C1, data);
+	    }
+	}
+	LL_I2C_ClearFlag_STOP(I2C1);
+}
 
 uint8_t i2c_master_read_byte(uint8_t slave_address, uint8_t register_address)
 {

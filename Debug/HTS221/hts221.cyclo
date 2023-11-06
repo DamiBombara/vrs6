@@ -1,0 +1,4 @@
+../HTS221/hts221.c:11:6:htsInit	2
+../HTS221/hts221.c:18:9:whoAmI	2
+../HTS221/hts221.c:26:7:rawTemp	1
+../HTS221/hts221.c:36:8:rawHum	1

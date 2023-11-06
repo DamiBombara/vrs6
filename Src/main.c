@@ -22,12 +22,13 @@
 #include "main.h"
 #include "i2c.h"
 #include "gpio.h"
+#include "usart.h"
+#include "lps25hb.h"
+#include "hts221.h"
+#include "dma.h"
+// I2C slave device useful informatio
 
-// I2C slave device useful information
-#define 	LSM6DS0_DEVICE_ADDRESS		0xD6U
-#define 	LSM6DS0_WHO_AM_I_VALUE		0x68U
-#define 	LSM6DS0_WHO_AM_I_ADDRES		0x0FU
-
+char tx_data[500];
 
 void SystemClock_Config(void);
 
@@ -44,14 +45,26 @@ int main(void)
   MX_GPIO_Init();
   MX_I2C1_Init();
 
+  MX_DMA_Init();
+  MX_USART2_UART_Init();
+
+  lpsInit();
+  htsInit();
+
+  float temp = 0;
+  float hum = 0;
+  float pressure = 0;
+  float height = 0;
+
   while (1)
   {
-	  if(i2c_master_read_byte(LSM6DS0_DEVICE_ADDRESS, LSM6DS0_WHO_AM_I_ADDRES) == LSM6DS0_WHO_AM_I_VALUE)
-	  {
-		  LL_GPIO_TogglePin(GPIOB, LL_GPIO_PIN_3);
-	  }
-
-	  LL_mDelay(100);
+	  temp = rawTemp();
+	  hum = rawHum();
+	  pressure = returnPressure();
+	  height = returnHeight();
+	  sprintf(tx_data, "Teplota [°C]: %.2f, relat. vlhkosť [%%]: %.2f, tlak vzduchu [hPa]: %.2f, relat. výška od zeme [m]: %.2f;\n\r", temp, hum, pressure, height);
+	  USART2_PutBuffer(tx_data, sizeof(tx_data));
+	  LL_mDelay(1000);
   }
 }
 

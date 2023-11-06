@@ -37,6 +37,7 @@
 void MX_I2C1_Init(void);
 /* USER CODE BEGIN Prototypes */
 uint8_t i2c_master_read_byte(uint8_t slave_address, uint8_t register_address);
+void i2c_send_byte(uint8_t slave_address, uint8_t register_address, uint8_t data);
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

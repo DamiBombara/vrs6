@@ -1,0 +1,4 @@
+../HTS221/hts221.c:11:6:htsInit	8	static
+../HTS221/hts221.c:18:9:whoAmI	8	static
+../HTS221/hts221.c:26:7:rawTemp	16	static
+../HTS221/hts221.c:36:8:rawHum	16	static
